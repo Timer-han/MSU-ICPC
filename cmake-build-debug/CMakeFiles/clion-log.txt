@@ -1,0 +1,1 @@
+CMakeLists.txt not found in C:\Users\tpetr\Documents\GitHub\MSU-ICPC Select CMakeLists.txt
