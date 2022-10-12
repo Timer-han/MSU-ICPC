@@ -9,15 +9,17 @@ int main() {
         cin >> a >> b;
         t = 0;
         while (true) {
+            if (a == b) {
+                cout << t << endl;
+                break;
+            }
+
             if (a < b) {
                 c = a;
                 a = b;
                 b = c;
             }
-            if (a == b) {
-                cout << t << endl;
-                break;
-            }
+
             a = (a + k - 2) / k;
             t++;
         }
