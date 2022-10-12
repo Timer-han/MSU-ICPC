@@ -40,7 +40,7 @@ int main() {
             t++;
         }
         c++;
-        if (c > 100000) {
+        if (c > 10000000) {
             cout << "-2";
             return 0;
         }
@@ -52,7 +52,7 @@ int main() {
             if (b[j] - a[j] == -i) {
                 if (s - a[j] >= 0) {
 
-                    s -= a[j] + b[j];
+                    s -= a[j] - b[j];
                     m.push_back(j);
                     a[j] = 100000000;
                 } else {
