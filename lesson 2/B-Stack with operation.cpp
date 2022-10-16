@@ -28,13 +28,14 @@ int main() {
                 mx.push_back(p);
             }
         }else if (s == "pop"){
+            if (as == 0) continue;
             if (a[as - 1 == mx[mxs - 1]]){
                 mx.pop_back();
                 mxs--;
             }
             a.pop_back();
             as--;
-        }else{
+        }else if (s == "max"){
             cout << mx[mxs - 1] << endl;
         }
     }
