@@ -65,6 +65,10 @@ int main() {
             }
         }
     }
+    if (!a.empty()) {
+        cout << -1 << endl;
+        return 0;
+    }
     for (int i : c){
         cout << i << ' ';
     }
