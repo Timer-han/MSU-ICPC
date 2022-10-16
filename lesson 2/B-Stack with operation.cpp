@@ -29,7 +29,7 @@ int main() {
             }
         }else if (s == "pop"){
             if (as == 0) continue;
-            if (a[as - 1 == mx[mxs - 1]]){
+            if (a[as - 1] == mx[mxs - 1]){
                 mx.pop_back();
                 mxs--;
             }
