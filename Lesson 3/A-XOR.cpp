@@ -11,12 +11,12 @@ using ld = double;
 using str = string;
 
 int main() {
-    int t = 0, n, mn;
+    ll t = 0, n, mn;
     cin >> t;
     for (int ti = 0; ti < t; ti++) {
-        mn = 1000000000;
+        mn = 19999999999;
         cin >> n;
-        vector<int> a(n);
+        vector<ll> a(n);
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
