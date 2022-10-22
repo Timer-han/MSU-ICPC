@@ -27,6 +27,10 @@ int main() {
             }
         }
     }
+    if (mn == 19999999999){
+        cout << -1;
+        return 0;
+    }
     cout << mn;
     return 0;
 }
