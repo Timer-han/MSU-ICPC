@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include <queue>
 
 using namespace std;
@@ -16,10 +17,10 @@ int main() {
         mn = 1000000000;
         cin >> n;
         vector<int> a(n);
-        sort(a.begin(), a.end());
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
+        sort(a.begin(), a.end());
         for (int i = 0; i < n - 1; i++) {
             mn = min(mn, (a[i] ^ a[i + 1]));
         }
