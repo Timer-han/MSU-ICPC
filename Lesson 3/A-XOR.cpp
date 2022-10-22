@@ -24,7 +24,7 @@ int main() {
                 mn = min(mn, (a[i]^a[j]));
             }
         }
-        cout << mn;
+        cout << mn << endl;
     }
 
 
