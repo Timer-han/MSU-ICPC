@@ -30,7 +30,7 @@ int main() {
         }
         if (mn != 19999999999){
             cout << mn << endl;
-            cout << chrono::duration<double>(chrono::system_clock::now() - start).count();
+            cout << fixed << setprecision(15) << chrono::duration<long double>(chrono::system_clock::now() - start).count() << endl;
             return 0;
         }
     }
@@ -38,6 +38,6 @@ int main() {
         cout << -1;
     }
     cout << mn << endl;
-    cout << chrono::duration<double>(chrono::system_clock::now() - start).count();
+    cout << fixed << setprecision(15) << chrono::duration<long double>(chrono::system_clock::now() - start).count() << endl;
     return 0;
 }
