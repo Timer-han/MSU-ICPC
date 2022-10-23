@@ -23,20 +23,22 @@ int main() {
     }
     auto start = chrono::system_clock::now();
     sort(h.begin(), h.end(), [](auto &x, auto &y) {
-        return x.first < y.first;
+        return x.second < y.second;
     });
-    for (int i = 1; i < n - 1; i++){
-        for (int j = 0; j < n - i; j++){
-            mn = min(mn, abs(h[j].first - h[j + i].first));
-        }
-        if (mn != 19999999999){
-            cout << mn << endl;
-            return 0;
+    for (int i = 0; i < n; i++){
+        for (int j = n - 1; j > i; j--){
+            if (h[j].second - h[i].second < d){
+                break;
+            }
+            mn = min(mn, abs(h[j].first - h[i].first));
         }
     }
-    if (mn == 19999999999){
-        cout << -1;
+    if (mn != 19999999999){
+        cout << mn << endl;
+    } else {
+        cout << -1 << endl;
     }
-    cout << mn << endl;
+//    cout << chrono::duration<double>(chrono::system_clock::now()-start).count();
+
     return 0;
 }
