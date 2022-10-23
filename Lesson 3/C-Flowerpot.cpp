@@ -19,7 +19,7 @@ int main() {
     }
     for (int i = 0; i < n; i++){
         for (int j = i + 1; j < n; j++){
-            if (h[j].second - h[i].second >= d){
+            if (abs(h[j].second - h[i].second) >= d){
                 mn = min(mn, abs(h[i].first - h[j].first));
             }
         }
