@@ -51,7 +51,7 @@ int main() {
                 }
             }
         } else {
-            if (p < n - 1) {
+            if (p <= n - 1) {
                 k += (p + 1) * abs(a[p + 1] - a[p]);
                 for (int i = 0; i <= p; i++) {
                     a[i] = a[p + 1];
@@ -63,6 +63,16 @@ int main() {
                 }
             }
         }
+//        cout << "k = " << k << endl;
+//        cout << "p = " << p << ", q = " << q << endl;
+//        for (int i = 0; i < n; i++){
+//            cout << a[i] << " ";
+//        } cout << endl;
+//        for (int i = 0; i < m; i++){
+//            cout << b[i] << " ";
+//        } cout << endl;
+
+
     }
     cout << k << endl;
 
