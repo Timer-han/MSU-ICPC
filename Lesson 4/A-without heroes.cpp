@@ -39,15 +39,29 @@ int main() {
             q++;
         }
         if (p > q) {
-            for (int i = 0; i <= q; i++) {
-                b[i]--;
+            if (q < m - 1) {
+                k += (q + 1) * abs(b[q + 1] - b[q]);
+                for (int i = 0; i <= q; i++) {
+                    b[i] = b[q + 1];
+                }
+            } else{
+                k += m * abs(b[q] - a[p]);
+                for (int i = 0; i <= q; i++) {
+                    b[i] = a[p];
+                }
             }
-            k += q + 1;
         } else {
-            for (int i = 0; i <= p; i++) {
-                a[i]++;
+            if (p < n - 1) {
+                k += (p + 1) * abs(a[p + 1] - a[p]);
+                for (int i = 0; i <= p; i++) {
+                    a[i] = a[p + 1];
+                }
+            } else{
+                k += n * abs(b[q] - a[p]);
+                for (int i = 0; i <= p; i++) {
+                    a[i] = b[q];
+                }
             }
-            k += p + 1;
         }
     }
     cout << k << endl;
