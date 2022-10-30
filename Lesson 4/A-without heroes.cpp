@@ -19,7 +19,7 @@ int main() {
     int p = 0, q = 0, k = 0, e = 0, f = 0;
     cin >> n >> m;
     vector<ll> a(n);
-    vector<ll> b(n);
+    vector<ll> b(m);
     for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
@@ -28,7 +28,7 @@ int main() {
     }
 //    auto start = chrono::system_clock::now();
     sort(a.begin(), a.end());
-    sort(b.begin(), b.end(), [](ll x, ll y) {
+    sort(b.begin(), b.end(), [](int x, int y){
         return x > y;
     });
     while (a[p] < b[q]) {
