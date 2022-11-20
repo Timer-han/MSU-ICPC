@@ -36,12 +36,8 @@ int main() {
     bool f;
     x = a[k].first;
     y = a[k].second;
-    int i = 2, s = sqrt(max(x, y)) + 1;
+    int i = 2;
     while (x > 1 || y > 1){
-        if (i > s){
-            b.push_back(a[k].first); b.push_back(a[k].second);
-            break;
-        }
         if (x % i == 0 or y % i == 0){
             b.push_back(i);
         }
