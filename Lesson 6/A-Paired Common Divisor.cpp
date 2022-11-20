@@ -30,7 +30,7 @@ int main() {
         }
 
     }
-    auto start = chrono::system_clock::now();
+//    auto start = chrono::system_clock::now();
 
     vector<ll> b(0);
     bool f;
@@ -39,7 +39,7 @@ int main() {
     int i = 2, s = sqrt(max(x, y)) + 1;
     while (x > 1 || y > 1){
         if (i > s){
-            b.push_back(x); b.push_back(y);
+            b.push_back(a[k].first); b.push_back(a[k].second);
             break;
         }
         if (x % i == 0 or y % i == 0){
@@ -67,6 +67,6 @@ int main() {
         }
     }
     cout << p << endl;
-    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
+//    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
     return 0;
 }
