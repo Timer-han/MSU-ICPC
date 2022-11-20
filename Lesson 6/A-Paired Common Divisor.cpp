@@ -38,6 +38,15 @@ int main() {
     y = a[k].second;
     int i = 2;
     while (x > 1 || y > 1){
+        if (i * i > max(x, y)){
+            if (x > 1){
+                b.push_back(x);
+            }
+            if (y > 1){
+                b.push_back(y);
+            }
+            break;
+        }
         if (x % i == 0 or y % i == 0){
             b.push_back(i);
         }
@@ -50,7 +59,7 @@ int main() {
         i++;
     }
     for (ll i: b) {
-//        cout << i << " ";
+//        cout << i << endl;
         f = true;
         for (int j = 0; j < n; j++) {
             if (a[j].first % i != 0 && a[j].second % i != 0) {
