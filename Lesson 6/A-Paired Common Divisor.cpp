@@ -17,24 +17,31 @@ using str = string;
 
 int main() {
 
-    ll n, k = 1, mn, p = -1;
+    ll n, k = 0, mn, p = -1, x, y;
     cin >> n;
     vector<pair<ll, ll>> a(n);
     cin >> a[0].first >> a[0].second;
-    mn = min(a[0].first, a[0].second);
+    mn = a[0].first + a[0].second;
     for (int i = 1; i < n; i++) {
         cin >> a[i].first >> a[i].second;
-        mn = min(min(a[i].first, a[i].second), mn);
+        if ((a[i].first + a[i].second) < mn){
+            k = i;
+            mn = (a[i].first + a[i].second);
+        }
+
     }
 //    auto start = chrono::system_clock::now();
 
     vector<ll> b(0);
     bool f;
-    for (int i = 2; i < sqrt(mn); i++) {
-        if (mn % i == 0) {
+    x = a[k].first;
+    y = a[k].second;
+    for (int i = 2; i < sqrt(max(x, y)); i++) {
+        if (x % i == 0 || y % i == 0) {
             b.push_back(i);
-            b.push_back(mn / i);
         }
+        if (x % i == 0) b.push_back(x / i);
+        if (y % i == 0 && y != x) b.push_back(y / i);
     }
     for (ll i: b) {
         f = true;
