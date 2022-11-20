@@ -43,7 +43,9 @@ int main() {
         if (x % i == 0) b.push_back(x / i);
         if (y % i == 0 && y != x) b.push_back(y / i);
     }
+    b.push_back(x); b.push_back(y);
     for (ll i: b) {
+//        cout << i << " ";
         f = true;
         for (int j = 0; j < n; j++) {
             if (a[j].first % i != 0 && a[j].second % i != 0) {
@@ -53,7 +55,6 @@ int main() {
         }
         if (f) {
             p = i;
-            break;
         }
     }
     cout << p << endl;
