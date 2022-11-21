@@ -15,16 +15,37 @@ using ll = long long;
 using ld = double;
 using str = string;
 
+ll f(ll x, ll y, ll* a) {
+    ll z = y, k = 0, p = x;
+    while (y != 1) {
+        a[k] = x / y;
+        k++;
+        x %= y;
+        swap(x, y);
+    }
+    x = 1;
+    y = a[k - 1];
+    for (ll i = k - 2; i >= 0; i--) {
+        x += a[i] * y;
+        swap(x, y);
+    }
+    if ((y * z) % p == 1) {
+        return y;
+    }
+    return -y;
+}
+
+
 int main() {
     ll t, a, b, p, k = 0, h;
-    vector<int> m(10000);
+    ll m[100000];
     cin >> t;
-//    auto start = chrono::system_clock::now();
+    auto start = chrono::system_clock::now();
     for (; t > 0; t--) {
         cin >> a >> b >> p;
         h = p;
         a = ((a % p) + p) % p;
-        b = ((b % p) + p) % p;
+        b = (((-b) % p) + p) % p;
         if (a == 0) {
             if (b == 0) {
                 cout << "Any" << endl;
@@ -33,21 +54,11 @@ int main() {
             }
             continue;
         }
-        while (a != 1){
-            m.push_back(p / a);
-            p %= a;
-            swap(a, p);
-            k++;
-
-        }
-        for (int i = 0; i < k; i++){
-            p *= m[i];
-            swap(a, p);
-        }
-        cout << ((p * b % h) + h) % h << endl;
+        h = f(p, a, m);
+        cout << (h * b % p + p) % p << endl;
 
     }
 
-//    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
+    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
     return 0;
 }
