@@ -21,7 +21,7 @@ int main() {
     cin >> n >> k;
     ll t = (ll) sqrt(n);
 //    auto start = chrono::system_clock::now();
-    for (int i = 1; i <= t; i++){
+    for (ll i = 1; i <= t; i++){
         if (n % i == 0){
             c++;
 //            cout << i << " ";
