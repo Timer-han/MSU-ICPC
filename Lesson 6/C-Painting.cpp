@@ -27,18 +27,24 @@ int main() {
         cout << 1 << endl;
     }
     for (int i = 2; i <= n + 1; i++){
-        vector <int> c(0);
         f = 0;
-        if (i % 2 != 0) 
+        if (i == 2){
+            b.push_back(i);
+            cout << 1 << " ";
+            continue;
+        }
+        if (i % 2 != 0)
         {
-            for (int j: b) 
+            for (int j: b)
             {
-                if (i % j == 0) 
+                if (i % j == 0)
                 {
                     f = 1;
                     break;
                 }
             }
+        } else{
+            f = 1;
         }
         if (f == 0){
             b.push_back(i);
