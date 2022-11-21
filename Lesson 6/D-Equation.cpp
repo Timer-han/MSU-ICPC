@@ -15,7 +15,7 @@ using ll = long long;
 using ld = double;
 using str = string;
 
-ll f(ll x, ll y, ll* a) {
+ll f(ll x, ll y, ll *a) {
     ll z = y, k = 0, p = x;
     while (y != 1) {
         a[k] = x / y;
@@ -52,6 +52,12 @@ int main() {
             } else {
                 cout << -1 << endl;
             }
+            continue;
+        } else if (a == 1) {
+            cout << b;
+            continue;
+        } else if (a == -1) {
+            cout << -b + p;
             continue;
         }
         h = f(p, a, m);
