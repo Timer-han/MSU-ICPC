@@ -16,14 +16,13 @@ using ld = double;
 using str = string;
 
 int main() {
-    ll t, a, b, p, k;
-    pair <int, int> x(1, 0);
-    pair <int, int> y(0, 1);
-    pair <int, int> z;
+    ll t, a, b, p, k = 0, h;
+    vector<int> m(10000);
     cin >> t;
 //    auto start = chrono::system_clock::now();
     for (; t > 0; t--) {
         cin >> a >> b >> p;
+        h = p;
         a = ((a % p) + p) % p;
         b = ((b % p) + p) % p;
         if (a == 0) {
@@ -34,17 +33,19 @@ int main() {
             }
             continue;
         }
-        x.first = 1; y.first = 0;
-        x.second = 0; y.second = 1;
-        while (a != 1) {
-            z.first = x.first; z.second = x.second;
-            k = a;
-            x.first -= y.first * (p / a); x.second -= y.second * (p / a);
-            a = p % a;
-            y.first = z.first; y.second = z.second;
-            p = k;
+        while (a != 1){
+            m.push_back(p / a);
+            p %= a;
+            swap(a, p);
+            k++;
+
         }
-        cout << ((x.first * b) % p + p) % p << endl;
+        for (int i = 0; i < k; i++){
+            p *= m[i];
+            swap(a, p);
+        }
+        cout << ((p * b % h) + h) % h << endl;
+
     }
 
 //    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
