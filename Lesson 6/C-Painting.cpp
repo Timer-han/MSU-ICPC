@@ -29,9 +29,15 @@ int main() {
     for (int i = 2; i <= n + 1; i++){
         vector <int> c(0);
         f = 0;
-        for (int j : b){
-            if (i % j == 0){
-                f++;
+        if (i % 2 != 0) 
+        {
+            for (int j: b) 
+            {
+                if (i % j == 0) 
+                {
+                    f = 1;
+                    break;
+                }
             }
         }
         if (f == 0){
