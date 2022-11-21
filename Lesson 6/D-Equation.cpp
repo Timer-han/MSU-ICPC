@@ -18,7 +18,7 @@ using str = string;
 int main() {
     ll t, a, b, p;
     cin >> t;
-    auto start = chrono::system_clock::now();
+//    auto start = chrono::system_clock::now();
     for (; t > 0; t--) {
         cin >> a >> b >> p;
         a = ((a % p) + p) % p;
@@ -39,6 +39,6 @@ int main() {
         }
     }
 
-    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
+//    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
     return 0;
 }
