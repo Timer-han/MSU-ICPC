@@ -34,10 +34,10 @@ int main() {
             break;
         }
     }
-    for (ll i; i < c; i++){
-        cout << i << " ";
-    }
-    cout << endl;
+//    for (ll i; i < c; i++){
+//        cout << i << " ";
+//    }
+//    cout << endl;
 
     if ((k <= 2 * c - (t * t == n ? 1 : 0)) && ans == -1){
 //        cout << a.size() - k + c << endl;
