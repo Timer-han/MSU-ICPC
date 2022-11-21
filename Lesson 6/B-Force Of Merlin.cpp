@@ -24,20 +24,22 @@ int main() {
     for (int i = 1; i <= t; i++){
         if (n % i == 0){
             c++;
+//            cout << i << " ";
             if (i * i != n) {
                 a.push_back(n / i);
             }
         }
         if (k == c){
             ans = i;
+            break;
         }
     }
-//    for (ll i : a){
-//        cout << i << " ";
-//    }
-//    cout << endl;
+    for (ll i; i < c; i++){
+        cout << i << " ";
+    }
+    cout << endl;
 
-    if ((k <= 2 * c - (t * t == n ? 0 : 1) + 1) && ans == -1){
+    if ((k <= 2 * c - (t * t == n ? 1 : 0)) && ans == -1){
 //        cout << a.size() - k + c << endl;
         ans = a[a.size() - k + c];
     }
