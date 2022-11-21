@@ -21,6 +21,11 @@ int main() {
 //    auto start = chrono::system_clock::now();
     vector <int> b(0);
     vector <int> a(n);
+    if (n >= 3){
+        cout << 2 << endl;
+    } else {
+        cout << 1 << endl;
+    }
     for (int i = 2; i <= n + 1; i++){
         vector <int> c(0);
         f = 0;
