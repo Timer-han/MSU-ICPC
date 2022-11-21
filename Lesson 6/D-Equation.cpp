@@ -21,7 +21,7 @@ int main() {
     pair <int, int> y(0, 1);
     pair <int, int> z;
     cin >> t;
-    auto start = chrono::system_clock::now();
+//    auto start = chrono::system_clock::now();
     for (; t > 0; t--) {
         cin >> a >> b >> p;
         a = ((a % p) + p) % p;
@@ -47,6 +47,6 @@ int main() {
         cout << ((x.first * b) % p + p) % p << endl;
     }
 
-    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
+//    cout << chrono::duration<double>(chrono::system_clock::now() - start).count() << endl;
     return 0;
 }
