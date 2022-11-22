@@ -42,14 +42,12 @@ ll invert(ll a, ll m)
 
 
 int main() {
-    ll t, a, b, p, h;
+    ll t, a, b, p, x, y;
     cin >> t;
 //    auto start = chrono::system_clock::now();
     for (; t > 0; t--) {
         cin >> a >> b >> p;
-        h = p;
-        a = ((a % p) + p) % p;
-        b = (((-b) % p) + p) % p;
+        a %= p; b %= p;
         if (a == 0) {
             if (b == 0) {
                 cout << "Any\n";
@@ -57,15 +55,20 @@ int main() {
                 cout << -1 << "\n";
             }
             continue;
-        } else if (a == 1) {
-            cout << b;
-            continue;
-        } else if (a == -1) {
-            cout << -b + p;
+        } else if (b == 0){
+            cout << "Any\n";
             continue;
         }
-        h = invert(a, p);
-        cout << (h * b % p + p) % p << "\n";
+        x = -b;
+        y = p - 2;
+        while (y){
+            if (y & 1){
+                x = (x * a) % p;
+            }
+            a = (a * a) % p;
+            y >>= 1;
+        }
+        cout << (x + p) % p << "\n";
 
     }
 
