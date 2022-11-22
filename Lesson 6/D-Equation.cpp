@@ -15,30 +15,34 @@ using ll = long long;
 using ld = double;
 using str = string;
 
-ll f(ll x, ll y, ll* a) {
-    ll z = y, k = 0, p = x;
-    while (y != 1) {
-        a[k] = x / y;
-        k++;
-        x %= y;
-        swap(x, y);
+ll invert(ll a, ll m)
+{
+    if (a < 1 or m < 2)
+        return -1;
+
+    ll u1 = m;
+    ll u2 = 0;
+    ll v1 = a;
+    ll v2 = 1;
+
+    while (v1 != 0)
+    {
+        ll q = u1 / v1;
+        ll t1 = u1 - q*v1;
+        ll t2 = u2 - q*v2;
+        u1 = v1;
+        u2 = v2;
+        v1 = t1;
+        v2 = t2;
     }
-    x = 1;
-    y = a[k - 1];
-    for (ll i = k - 2; i >= 0; i--) {
-        x += a[i] * y;
-        swap(x, y);
-    }
-    if ((y * z) % p == 1) {
-        return y;
-    }
-    return -y;
+
+    return u1 == 1 ? (u2 + m) % m : -1;
 }
 
 
+
 int main() {
-    ll t, a, b, p, k = 0, h;
-    ll m[100000];
+    ll t, a, b, p, h;
     cin >> t;
 //    auto start = chrono::system_clock::now();
     for (; t > 0; t--) {
@@ -48,13 +52,19 @@ int main() {
         b = (((-b) % p) + p) % p;
         if (a == 0) {
             if (b == 0) {
-                cout << "Any" << "\n";
+                cout << "Any\n";
             } else {
                 cout << -1 << "\n";
             }
             continue;
+        } else if (a == 1) {
+            cout << b;
+            continue;
+        } else if (a == -1) {
+            cout << -b + p;
+            continue;
         }
-        h = f(p, a, m);
+        h = invert(a, p);
         cout << (h * b % p + p) % p << "\n";
 
     }
