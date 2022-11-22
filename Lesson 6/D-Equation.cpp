@@ -33,7 +33,7 @@ int main() {
             }
             continue;
         } else if (b == 0) {
-            cout << "Any\n";
+            cout << "0\n";
             continue;
         }
         x = -b;
@@ -45,11 +45,7 @@ int main() {
             a = (a * a) % p;
             y >>= 1;
         }
-        if (x < 0){
-            cout << x + p << "\n";
-        } else{
-            cout << x << "\n";
-        }
+        cout << (x + p) % p << "\n";
 
     }
     return 0;
