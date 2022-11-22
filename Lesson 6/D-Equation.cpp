@@ -17,6 +17,8 @@ using str = string;
 
 
 int main() {
+    cin.tie(nullptr);
+    ios_base::sync_with_stdio(false);
     ll t, a, b, p, x, y;
     cin >> t;
     for (; t > 0; t--) {
