@@ -21,11 +21,14 @@ int main() {
     ios_base::sync_with_stdio(false);
     int t, n, mn, mni, mn2, mni2, mx, mxi;
     cin >> t;
+//    auto start = chrono::system_clock::now();
     for (; t > 0; t--) {
         cin >> n;
         vector<int> a(n);
         vector<vector<int>> b;
         cin >> a[0] >> a[1];
+
+
         mn = mn2 = mx = a[1];
         mni = mni2 = mxi = 1;
         for (int i = 2; i < n; i++) {
@@ -40,6 +43,10 @@ int main() {
                 mni = mni2;
                 mn = mn2;
             }
+        }
+        if (a[n - 1] < a[n - 2]) {
+            cout << -1 << "\n";
+            continue;
         }
         if (a[0] > mn - mx) {
             a[0] = mn - mx;
@@ -73,16 +80,12 @@ int main() {
                     }
                 }
             }
-            if (a[i] > a[mni] - a[mxi]) {
-                a[i] = a[mni] - a[mxi];
+            if (a[i] > mn - mx) {
+                a[i] = mn - mx;
                 b.push_back({i + 1, mni + 1, mxi + 1});
             }
         }
 
-        if (a[n - 1] < a[n - 2]) {
-            cout << -1 << "\n";
-            continue;
-        }
         cout << b.size() << "\n";
         for (auto i: b) {
             for (auto j: i) {
@@ -92,5 +95,6 @@ int main() {
         }
 
     }
+//    cout << chrono::duration<double>(chrono::system_clock::now()-start).count();
     return 0;
 }
