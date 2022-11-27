@@ -24,7 +24,7 @@ int main() {
     for (; t > 0; t--) {
         cin >> n;
         vector<int> a(n);
-        vector <vector<int>> b;
+        vector<vector<int>> b;
         cin >> a[0] >> a[1];
         mn = mn2 = mx = a[1];
         mni = mni2 = mxi = 1;
@@ -41,10 +41,12 @@ int main() {
                 mn = mn2;
             }
         }
-        a[0] = mn - mx;
-        b.push_back({1, mni + 1, mxi + 1});
+        if (a[0] > mn - mx) {
+            a[0] = mn - mx;
+            b.push_back({1, mni + 1, mxi + 1});
+        }
         for (int i = 1; i < n - 2; i++) {
-            if (i == mni && mni + 1 == mxi){
+            if (i == mni && mni + 1 == mxi) {
                 mxi++;
                 mx = a[mxi];
                 mn2 = mx;
@@ -61,18 +63,20 @@ int main() {
                         mn = mn2;
                     }
                 }
-            } else if (i == mni){
+            } else if (i == mni) {
                 mni++;
                 mn = a[mni];
-                for (int j = mni + 1; j < mxi; j++){
-                    if (mn >= a[j]){
+                for (int j = mni + 1; j < mxi; j++) {
+                    if (mn >= a[j]) {
                         mn = a[j];
                         mni = j;
                     }
                 }
             }
-            a[i] = a[mni] - a[mxi];
-            b.push_back({i + 1, mni + 1, mxi + 1});
+            if (a[i] > a[mni] - a[mxi]) {
+                a[i] = a[mni] - a[mxi];
+                b.push_back({i + 1, mni + 1, mxi + 1});
+            }
         }
 
         if (a[n - 1] < a[n - 2]) {
@@ -80,8 +84,8 @@ int main() {
             continue;
         }
         cout << b.size() << "\n";
-        for (auto i : b){
-            for (auto j : i){
+        for (auto i: b) {
+            for (auto j: i) {
                 cout << j << " ";
             }
             cout << "\n";
