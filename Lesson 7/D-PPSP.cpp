@@ -33,7 +33,7 @@ int main() {
         } else {
             l++;
         }
-        if (r >= l) {
+        if (r >= l && i != n - 1) {
             cout << ":(";
             return 0;
         }
@@ -45,7 +45,7 @@ int main() {
         } else {
             r++;
         }
-        if (l >= r) {
+        if (l >= r && i != 0) {
             cout << ":(";
             return 0;
         }
