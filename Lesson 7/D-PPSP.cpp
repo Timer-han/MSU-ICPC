@@ -24,7 +24,7 @@ int main() {
     string s;
     cin >> s;
     if (n % 2 == 1) {
-        cout << ": (";
+        cout << ":(";
         return 0;
     }
     for (int i = 0; i < n; i++) {
@@ -34,7 +34,7 @@ int main() {
             l++;
         }
         if (r >= l) {
-            cout << ": (";
+            cout << ":(";
             return 0;
         }
     }
@@ -46,7 +46,7 @@ int main() {
             r++;
         }
         if (l >= r) {
-            cout << ": (";
+            cout << ":(";
             return 0;
         }
     }
