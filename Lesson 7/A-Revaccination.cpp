@@ -19,7 +19,7 @@ using str = string;
 int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
-    int t, k;
+    ll t, k;
     cin >> t;
     while (t--) {
         int n, m;
@@ -28,9 +28,7 @@ int main() {
         for (int i = 0; i < m; ++i) {
             cin >> a[i].first >> a[i].second;
         }
-        sort(a.begin(), a.end(), [](auto x, auto y){
-            return x.first >= y.first;
-        });
+        sort(a.rbegin(), a.rend());
         vector<ll> dr(m + 1);
         for (int i = 0; i < m; ++i) {
             dr[i + 1] = dr[i] + a[i].first;
@@ -59,7 +57,7 @@ int main() {
             sum += a[i].first;
             max_b = max(max_b, a[i].second);
             k = sum + (ll) (n - i - 1) * max_b;
-            ans = (ans > k ? ans : k);
+            ans = max(ans, k);
         }
         cout << ans << '\n';
     }
