@@ -16,63 +16,77 @@ using ld = double;
 using str = string;
 
 
-void f(vector <vector <int>> &a, vector <vector <int>> &b, int x, int y, int n, int m){
-    int k = 1, t;
-    vector <pair <int, int>> st (1);
-    vector <vector <int>> d(n, vector<int>(m, 1));
-    st[0].first = x;
-    st[0].second = y;
-    while (k > 0){
-        t = 0;
-        d[x][y] = 0;
-        if (x > 0 && a[x - 1][y] == 1){
-            st.push_back({x - 1, y});
-            t++;
-        } if (x < m - 1 && a[x + 1][y] == 1){
-            st.push_back({y - 1, y});
-            t++;
-        } if (y > 0 && a[x][y - 1] == 1){
-            st.push_back({x - 1, y});
-            t++;
-        } if (y < n - 1 && a[x][y + 1] == 1){
-            st.push_back({x - 1, y});
-            t++;
-        } if (t == 0){
-
-        }
-    }
-    // возвращает 1 если нет цикла или количество клеток чётно, 0 - иначе
-}
-
 int main() {
     cin.tie(nullptr);
     ios_base::sync_with_stdio(false);
-    int n, m, k = 0;
+    int n, m, k = 0, x, y;
     char c;
     cin >> n >> m;
-    vector <vector <int>> a(n, vector<int>(m, 0));
-    vector <vector <int>> b(n, vector<int>(m, 0));
+    vector<vector<int>> a(n, vector<int>(m, 0));
+    vector<vector<int>> b(n, vector<int>(m, 0));
 
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m; j++){
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
             cin >> c;
-            if (c == '.'){
+            if (c == '.') {
                 k++;
                 a[i][j] = 1;
             }
         }
     }
-    if (k % 2 == 1){
+    if (k % 2 == 1) {
         cout << "Not unique";
         return 0;
     }
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < m; j++){
-            if (b[i][j]){
-                continue;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (a[i][j] == 1) {
+                if (j < m - 1 && a[i][j + 1] == 1) {
+                    a[i][j] = 2;
+                    a[i][j + 1] = 3;
+                } else if (i < n - 1 && a[i + 1][j] == 1) {
+                    a[i][j] = 4;
+                    a[i + 1][j] = 5;
+                } else {
+                    while (true) {
+                        if (j > 0 && a[i][j - 1] > 0) {
+                            a[i][j] = 2;
+                            k = a[i][j - 1];
+                            x = i;
+                            y = j - 1;
+                        } else if (i > 0 && a[i - 1][j] > 0) {
+                            a[i][j] = 4;
+                            k = a[i - 1][j];
+                            x = i;
+                            y = j - 1;
+                        } else {
+                            cout << "Not unique";
+                            return 0;
+                        }
+                    }
+                }
             }
-
         }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] == 0) {
+                cout << "* ";
+            }
+            if (a[i][j] == 2) {
+                cout << "< ";
+            }
+            if (a[i][j] == 3) {
+                cout << "> ";
+            }
+            if (a[i][j] == 4) {
+                cout << "^ ";
+            }
+            if (a[i][j] == 5) {
+                cout << "v ";
+            }
+        }
+        cout << "\n";
     }
 //    auto start = chrono::system_clock::now();
 //    cout << chrono::duration<double>(chrono::system_clock::now()-start).count();
