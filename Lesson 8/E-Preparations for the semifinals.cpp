@@ -21,10 +21,10 @@ int main() {
     ios::sync_with_stdio(false);
     int n, c;
     cin >> n >> c;
-    vector <int> a(n);
-    vector <int> b(n);
-    vector <int> d(n, 0);
-    vector <int> t(n, 0);
+    vector <ll> a(n);
+    vector <ll> b(n);
+    vector <ll> d(n, 0);
+    vector <ll> t(n, 0);
     for (int i = 0; i < n - 1; i++){
         cin >> a[i];
     }
