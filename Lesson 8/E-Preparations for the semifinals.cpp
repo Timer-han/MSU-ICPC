@@ -47,7 +47,7 @@ int main() {
                 t[i] = 1;
             }
         } else {
-            if (a[i - 1] < b[i - 1] + c){
+            if (a[i - 1] <= b[i - 1] + c){
                 d[i] = a[i - 1] + d[i - 1];
             }else {
                 d[i] = b[i - 1] + c + d[i - 1];
