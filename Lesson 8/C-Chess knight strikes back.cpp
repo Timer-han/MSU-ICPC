@@ -24,7 +24,7 @@ int main() {
     if (n == 1){
         cout << 8;
     } else {
-        int sm = 0;
+        ll sm = 0;
         vector <int> a = {1, 1, 1, 1, 0, 1, 1, 0, 1, 0};
         for (int i = 1; i < n; i++){
             vector <int> b (10, 0);
@@ -44,7 +44,7 @@ int main() {
         for (int j = 0; j < 10; j++){
             sm += a[j];
         }
-        cout << sm;
+        cout << sm % 1000000000;
     }
 
 //    auto start = chrono::system_clock::now();
