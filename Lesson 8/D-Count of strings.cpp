@@ -47,7 +47,7 @@ int main() {
     }
 
     for (int i = 0; i < t; i++){
-        cout << sm[l[i]] - sm[r[i] - 1] << "\n";
+        cout << (sm[l[i]] - sm[r[i] - 1] + 2 * 1000000007) % 1000000007 << "\n";
     }
 //    auto start = chrono::system_clock::now();
 //    cout << chrono::duration<double>(chrono::system_clock::now()-start).count();
