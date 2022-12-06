@@ -20,7 +20,7 @@ int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
     int n, c;
-    ll d1 = 0, d2;
+    ll d1 = 0, d2, h = 0;
     cin >> n >> c;
     vector <ll> a(n);
     vector <ll> b(n);
@@ -37,9 +37,14 @@ int main() {
         d2 = b[0] + c;
         t[1] = 1;
     }
+    h += b[0];
     cout << 0 << " " << d2 << " ";
     for (int i = 2; i < n; i++){
         d1 = d2;
+        h += b[i - 1];
+        if (!t[i - 1]){
+            h = (h > d2 + b[i - 1] ? d2 + b[i - 1] : h);
+        }
         if (t[i - 1]){
             if (a[i - 1] < b[i - 1]){
                 d2 = a[i - 1] + d1;
@@ -54,6 +59,9 @@ int main() {
                 d2 = b[i - 1] + c + d1;
                 t[i] = 1;
             }
+        }
+        if (h + c < d2){
+            d2 = h + c;
         }
         cout << d2 << " ";
     }
