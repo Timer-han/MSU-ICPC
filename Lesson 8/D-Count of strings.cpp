@@ -29,7 +29,7 @@ int main() {
         mxl = max(mxl, l[i]);
         mnr = min(mnr, r[i]);
     }
-    vector <ll> sm(mxl, 0);
+    vector <ll> sm(mxl + 1, 0);
     vector<ll> w(k, 0);
     p = 0;
     R = 1;
