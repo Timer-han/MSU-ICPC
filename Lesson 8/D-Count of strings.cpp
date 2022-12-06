@@ -29,24 +29,25 @@ int main() {
         mxl = max(mxl, l[i]);
         mnr = min(mnr, r[i]);
     }
-    vector <ll> sm(mxl);
+    vector <ll> sm(mxl, 0);
     vector<ll> w(k, 0);
     p = 0;
     R = 1;
     w[k - 1] = 1;
-    for (int i = 1; i <= mxl; i++) {
+
+    R = (R + w[p]) % 1000000007;
+    w[p] = R;
+    sm[1] = R;
+    p = (p + 1) % k;
+    for (int i = 2; i <= mxl; i++) {
         R = (R + w[p]) % 1000000007;
         w[p] = R;
-        sm[i - 1] = R;
+        sm[i] = (sm[i - 1] + R) % 1000000007;
         p = (p + 1) % k;
     }
 
     for (int i = 0; i < t; i++){
-        smm = 0;
-        for (int j = r[i]; j <= l[i]; j++){
-            smm = (smm + sm[j - 1]) % 1000000007;
-        }
-        cout << smm << "\n";
+        cout << sm[l[i]] - sm[r[i] - 1] << "\n";
     }
 //    auto start = chrono::system_clock::now();
 //    cout << chrono::duration<double>(chrono::system_clock::now()-start).count();
