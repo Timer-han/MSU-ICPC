@@ -21,6 +21,7 @@ int main() {
     ios::sync_with_stdio(false);
     ll n, x, y, k, sm, nb;
     cin >> n;
+    vector<vector<ll>> b(n, vector<ll>(n));
     vector<vector<ll>> a(n, vector<ll>(n));
     vector<ll> v(n);
     vector<bool> u(n, false);
@@ -36,7 +37,6 @@ int main() {
     for (int t = -1; t < n - 2; t++) {
         if (t != -1) u[v[t]] = true;
         nb = n - t - 1;
-        vector<vector<ll>> b(nb, vector<ll>(nb));
         x = 0;
         for (int i = 0; i < n; i++) {
             if (u[i]) {
